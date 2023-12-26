@@ -1,0 +1,68 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.logInSection {
+  width: 100%;
+  min-height: 100vh;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.logInLeft {
+  width: 50%;
+  min-height: 100vh;
+  background: linear-gradient(216deg, #1a81ec 0.74%, #002540 99.53%);
+  position: relative;
+}
+.logInImage {
+  position: absolute;
+  width: 50%;
+  bottom: 0;
+  left: 0;
+}
+.logInRight {
+  width: 50%;
+}
+.form {
+  width: 90%;
+  margin: 0 auto;
+}
+.inputLogIn {
+  width: 100%;
+  height: 60px;
+  padding-left: 50px;
+  margin-top: 50px;
+  border-radius: 10px;
+  outline: none;
+  border: 1px solid #b6b6b6;
+}
+.inputbox {
+  position: relative;
+  object-fit: cover;
+}
+.form button {
+  width: 100%;
+  height: 50px;
+  margin: 25px auto;
+  border-radius: 7px;
+  background: #002540;
+  color: #fff;
+}
+.bx-user,
+.bx-lock-alt {
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  width: 40px;
+  padding: 10px;
+  height: 40px;
+  text-align: center;
+  align-items: center;
+  color: #b6b6b6;
+  font-size: 20px;
+  border-right: 2px solid #b6b6b6;
+}
