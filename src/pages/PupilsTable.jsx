@@ -49,51 +49,49 @@ const PupilsTable = ({ currentClass }) => {
     setPage(0);
   };
   return (
-    <div>
-      <Paper>
-        <TableContainer>
-          <Table>
-            <TableHead>
-              <TableRow>
-                {colums.map((column) => (
-                  <TableCell key={column.id}>{column.name}</TableCell>
-                ))}
-              </TableRow>
-            </TableHead>
-            <TableBody>
-              {currentClass.pupils &&
-                currentClass.pupils
-                  .slice(page * rowPerPage, page * rowPerPage + rowPerPage)
-                  .map((row, i) => {
-                    return (
-                      <TableRow key={i}>
-                        <TableCell>{i + 1}</TableCell>
-                        <TableCell>{row.full_name}</TableCell>
-                        <TableCell>{row.phone_number}</TableCell>
-                        <TableCell>UZS {row.money}</TableCell>
-                        <TableCell>0%</TableCell>
-                        <TableCell>
-                          <Button variant="outlined">
-                            <BorderColorIcon />
-                          </Button>
-                        </TableCell>
-                      </TableRow>
-                    );
-                  })}
-            </TableBody>
-          </Table>
-        </TableContainer>
-        <TablePagination
-          rowsPerPageOptions={[5, 10, 25]}
-          page={page}
-          rowsPerPage={rowPerPage}
-          component="div"
-          count={currentClass.pupils.length}
-          onPageChange={handleChangePage}
-          onRowsPerPageChange={handleRowsPerPage}
-        ></TablePagination>
-      </Paper>
-    </div>
+    <Paper>
+      <TableContainer>
+        <Table>
+          <TableHead>
+            <TableRow>
+              {colums.map((column) => (
+                <TableCell key={column.id}>{column.name}</TableCell>
+              ))}
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {currentClass.pupils &&
+              currentClass.pupils
+                .slice(page * rowPerPage, page * rowPerPage + rowPerPage)
+                .map((row, i) => {
+                  return (
+                    <TableRow key={i}>
+                      <TableCell>{i + 1}</TableCell>
+                      <TableCell>{row.full_name}</TableCell>
+                      <TableCell>{row.phone_number}</TableCell>
+                      <TableCell>UZS {row.money}</TableCell>
+                      <TableCell>0%</TableCell>
+                      <TableCell>
+                        <Button variant="outlined">
+                          <BorderColorIcon />
+                        </Button>
+                      </TableCell>
+                    </TableRow>
+                  );
+                })}
+          </TableBody>
+        </Table>
+      </TableContainer>
+      <TablePagination
+        rowsPerPageOptions={[5, 10, 25]}
+        page={page}
+        rowsPerPage={rowPerPage}
+        component="div"
+        count={currentClass.pupils.length}
+        onPageChange={handleChangePage}
+        onRowsPerPageChange={handleRowsPerPage}
+      ></TablePagination>
+    </Paper>
   );
 };
 

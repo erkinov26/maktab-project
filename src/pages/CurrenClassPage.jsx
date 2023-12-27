@@ -1,9 +1,10 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 // eslint-disable react/prop-types
 import { Box, Tab, Tabs, Typography } from "@mui/material";
 import Navbar from "../ui-components/Navbar";
 import PupilsTable from "./PupilsTable";
-import { useState } from "react";
+import { Fragment, useState } from "react";
 import PropTypes from "prop-types";
 
 function CustomTabPanel(props) {
@@ -19,7 +20,7 @@ function CustomTabPanel(props) {
     >
       {value === index && (
         <Box sx={{ p: 3 }}>
-          <Typography>{children}</Typography>
+          <div>{children}</div>
         </Box>
       )}
     </div>
@@ -46,25 +47,23 @@ const CurrentClassPage = ({ currentClass }) => {
   };
 
   return (
-    <>
+    <Fragment>
       <Navbar />
       <Box sx={{ width: "100%" }}>
-        <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
+        <Box component="div" sx={{ borderBottom: 1, borderColor: "divider" }}>
           <Tabs value={value} onChange={handleChange}>
             <Tab label="Guruh №1" {...a11yProps(0)} />
             <Tab label="Fanlar" {...a11yProps(1)} />
           </Tabs>
         </Box>
-        <CustomTabPanel value={value} index={0}>
-          <div>
-            <PupilsTable currentClass={currentClass} />
-          </div>
+        <CustomTabPanel component="div" value={value} index={0}>
+          <PupilsTable currentClass={currentClass}></PupilsTable>
         </CustomTabPanel>
-        <CustomTabPanel value={value} index={1}>
+        <CustomTabPanel component="div" value={value} index={1}>
           Fanlar
         </CustomTabPanel>
       </Box>
-    </>
+    </Fragment>
   );
 };
 
