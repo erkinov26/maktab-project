@@ -1,5 +1,6 @@
 const classData = [
   {
+    id: "0",
     classNumber: '8 "A"',
     tutor: "Abror Azimov",
     pupils: [
@@ -48,6 +49,7 @@ const classData = [
     ],
   },
   {
+    id: "1",
     classNumber: '8 "B"',
     tutor: "Muhammadrasul Olimov",
     pupils: [
@@ -93,6 +95,22 @@ const classData = [
         password: "AB123456",
         contract: "1200000",
       },
+      {
+        id: "AB033",
+        full_name: "Javlonbek Shodmonov",
+        phone_number: "+998(90)123-45-67",
+        gmail: "info@gmail.com",
+        money: 850000,
+        birth_date: "01.02.2005",
+        sex: "Erkak",
+        address: "Toshkent sh. Chilonzor t. Muqumiy 18A uy",
+        user_name: "zoir_s",
+        login: "AB123456",
+        password: "AB123456",
+        contract: "1200000",
+      },
     ],
   },
 ];
+
+export default classData;

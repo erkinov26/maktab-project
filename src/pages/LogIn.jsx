@@ -3,16 +3,14 @@ import { useDispatch, useSelector } from "react-redux";
 import bgLogInImage from "../assets/images/logInImage.png";
 import { authAction } from "../store/Login";
 import { useRef, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import {useNavigate } from "react-router-dom";
 const LogIn = () => {
+  
   const dispatch = useDispatch();
   const loginRef = useRef();
   const passwordRef = useRef();
   const navigate = useNavigate();
   const [validation, setValidation] = useState(false);
-  const LOGIN_ACCESS = useSelector(
-    (state) => state.auth.access.isAuthenticated
-  );
   const LOGIN_USERS = useSelector((state) => state.auth.users);
   console.log("LOGIN_USERS:", LOGIN_USERS);
   const submitLogin = (e) => {
@@ -24,7 +22,7 @@ const LogIn = () => {
           user.password === passwordRef.current.value
         ) {
           dispatch(authAction.login());
-          navigate("/main");
+          navigate("/sinflar");
         } else {
           setValidation(true);
         }

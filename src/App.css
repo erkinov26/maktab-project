@@ -66,3 +66,29 @@
   font-size: 20px;
   border-right: 2px solid #b6b6b6;
 }
+
+.navbarLeftListItem {
+  width: 80%;
+  margin: 25px 0;
+  padding: 8px 15px 8px 30px;
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+  font-weight: 400;
+  color: #fff;
+  border-top-right-radius: 34px;
+  border-bottom-right-radius: 34px;
+  border: 1px solid #002540;
+}
+.navbarLeftListItem:hover {
+  cursor: pointer;
+  border: 1px solid #0094ff;
+}
+.navbarLeftListItem.active {
+  background-color: #0094ff;
+  border: 1px solid #0094ff;
+}
+
+.tableRow:hover {
+  background-color: #0095ff2a;
+}
