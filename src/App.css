@@ -89,6 +89,66 @@
   border: 1px solid #0094ff;
 }
 
-.tableRow:hover {
-  background-color: #0095ff2a;
+.currentClassMainBoxImg {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: #0094ff;
+}
+.clickedPupilImgBox {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  background-color: #0094ff;
+  margin: 0 auto;
+}
+.clickedPupilName {
+  color: #002540;
+  font-size: 24px;
+  margin-top: 30px;
+  font-style: normal;
+  text-align: center;
+  font-weight: 600;
+  line-height: normal;
+}
+.clickedPupilId {
+  color: #9e99a6;
+  font-family: Roboto;
+  font-size: 14px;
+  margin-top: 15px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  text-align: center;
+}
+
+.clickedPupilNumberbox {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 30px;
+  margin-bottom: 40px;
+}
+.clickedPupilInfoTitle {
+  color: #002540;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  margin-top: 35px;
+}
+.clickedPupilInfoText {
+  color: #445d70;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 19px;
+}
+.clickedPupilInfoBox {
+  display: flex;
+  flex-flow: wrap;
+}
+.clickedPupilInfoItem {
+  width: 46%;
+  margin-right: 4%;
 }

@@ -15,10 +15,8 @@ import CurrenClassPage from "./pages/CurrenClassPage";
 import { useSelector } from "react-redux";
 function App() {
   const ID_CLASSES = useSelector((state) => state.classData);
-  console.log(ID_CLASSES);
   const [classId, setClassId] = useState();
   const [currentClass, setCurrentClass] = useState();
-  console.log("🚀 ~ file: App.jsx:22 ~ App ~ currentClass:", currentClass);
   const findId = (id) => {
     ID_CLASSES.map((item) => {
       if (item.id === id) {
@@ -40,7 +38,7 @@ function App() {
       <Route path="KPI" element={<KPI />} />
       <Route
         path={"/sinflar/" + classId}
-        element={<CurrenClassPage currentClass={currentClass} />} 
+        element={<CurrenClassPage currentClass={currentClass} />}
       />
     </Routes>
   );

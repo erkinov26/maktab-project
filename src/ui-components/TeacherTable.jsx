@@ -73,15 +73,10 @@ const TeacherTable = ({ findId }) => {
                 ).map((row, i) => {
                   return (
                     <TableRow
-                      className="tableRow"
-                      style={{
-                        cursor: "pointer",
+                      sx={{
+                        backgroundColor: i % 2 === 0 ? "#0095ff15" : "$fff",
                       }}
                       key={i}
-                      onClick={() => {
-                        findId(row.id);
-                        navigate(`/sinflar/${row.id}`);
-                      }}
                     >
                       <TableCell>{i + 1}</TableCell>
                       <TableCell>{row.classNumber} - sinf</TableCell>
@@ -89,7 +84,13 @@ const TeacherTable = ({ findId }) => {
                       <TableCell>Guruh #1</TableCell>
                       <TableCell>{row.tutor}</TableCell>
                       <TableCell>
-                        <Button variant="outlined">
+                        <Button
+                          onClick={() => {
+                            findId(row.id);
+                            navigate(`/sinflar/${row.id}`);
+                          }}
+                          variant="outlined"
+                        >
                           <BorderColorIcon />
                         </Button>
                       </TableCell>

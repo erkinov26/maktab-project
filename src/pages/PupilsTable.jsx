@@ -12,6 +12,8 @@ import {
 } from "@mui/material";
 import { useState } from "react";
 import BorderColorIcon from "@mui/icons-material/BorderColor";
+import { DeleteOutline } from "@mui/icons-material";
+import PupilInfo from "../ui-components/PupilInfo";
 const PupilsTable = ({ currentClass }) => {
   const colums = [
     {
@@ -53,7 +55,7 @@ const PupilsTable = ({ currentClass }) => {
       <TableContainer>
         <Table>
           <TableHead>
-            <TableRow>
+            <TableRow sx={{ backgroundColor: "#E6EEF4" }}>
               {colums.map((column) => (
                 <TableCell key={column.id}>{column.name}</TableCell>
               ))}
@@ -72,7 +74,11 @@ const PupilsTable = ({ currentClass }) => {
                       <TableCell>UZS {row.money}</TableCell>
                       <TableCell>0%</TableCell>
                       <TableCell>
-                        <Button variant="outlined">
+                        <PupilInfo clickedPupil={row} />
+                        <Button sx={{ color: "#FA0000" }}>
+                          <DeleteOutline />
+                        </Button>
+                        <Button sx={{ color: "#0094FF" }}>
                           <BorderColorIcon />
                         </Button>
                       </TableCell>
