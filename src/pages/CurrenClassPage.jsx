@@ -7,13 +7,12 @@ import PupilsTable from "./PupilsTable";
 import { Fragment, useState } from "react";
 import PropTypes from "prop-types";
 import DeleteModal from "../ui-components/DeleteModal";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { classDataSliceAction } from "../store/ClassesData";
+import { useNavigate } from "react-router-dom";
 
 function CustomTabPanel(props) {
   const { children, value, index, ...other } = props;
-
-  const CLASS_DATA_SLICE = useSelector((state) => state.classData);
-
   return (
     <div
       role="tabpanel"
@@ -48,6 +47,16 @@ const CurrentClassPage = ({ currentClass }) => {
   const [value, setValue] = useState(0);
   const handleChange = (event, newValue) => {
     setValue(newValue);
+  };
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const deleteClassFunc = () => {
+    navigate("/sinflar");
+    dispatch(
+      classDataSliceAction.deleteClass({
+        id: currentClass.id,
+      })
+    );
   };
 
   return (
@@ -101,8 +110,9 @@ const CurrentClassPage = ({ currentClass }) => {
           </Button>{" "}
           <br />
           <DeleteModal
-            currentClass={currentClass}
+            deleteFunc={deleteClassFunc}
             modalText="Sinf o'chirislishiga rozimisiz ?"
+            buttonText="O'chirish"
           />
         </ButtonGroup>
       </Box>

@@ -1,11 +1,9 @@
+/* eslint-disable react/jsx-no-undef */
 /* eslint-disable react/prop-types */
 import { Box, Button, Modal, Typography } from "@mui/material";
 import { useState } from "react";
-import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
-import { classDataSliceAction } from "../store/ClassesData";
 
-export default function DeleteModal({ currentClass, modalText }) {
+export default function DeleteModal({ modalText, deleteFunc, buttonText }) {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -24,24 +22,14 @@ export default function DeleteModal({ currentClass, modalText }) {
     p: 4,
   };
 
-  console.log(currentClass.id);
-  const navigate = useNavigate();
-  const dispatch = useDispatch();
-  const deleteItem = () => {
-    dispatch(
-      classDataSliceAction.deleteClass({
-        id: currentClass.id,
-      })
-    );
-  };
-  const deleteClass = () => {
-    navigate("/sinflar");
-    deleteItem();
-  };
-
   return (
     <div>
-      <Button onClick={handleOpen}>O{"'"}chirish</Button>
+      <Button
+        sx={{ color: buttonText !== "O'chirish" ? "red" : null }}
+        onClick={handleOpen}
+      >
+        {buttonText}
+      </Button>
       <Modal
         open={open}
         onClose={handleClose}
@@ -55,7 +43,13 @@ export default function DeleteModal({ currentClass, modalText }) {
           <Button onClick={handleClose} sx={{ m: 4 }}>
             Yo{"'"}q
           </Button>
-          <Button onClick={deleteClass} sx={{ m: 4 }} variant="contained">
+          <Button
+            onClick={() => {
+              deleteFunc(), handleClose();
+            }}
+            sx={{ m: 4 }}
+            variant="contained"
+          >
             Ha
           </Button>
         </Box>

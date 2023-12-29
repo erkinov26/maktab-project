@@ -1,4 +1,4 @@
-const classesData = [
+const ClassesData = [
   {
     id: "0",
     classNumber: '8 "A"',
@@ -113,4 +113,4 @@ const classesData = [
   },
 ];
 
-export default classesData;
+export default ClassesData;

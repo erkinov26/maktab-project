@@ -14,6 +14,9 @@ import { useState } from "react";
 import BorderColorIcon from "@mui/icons-material/BorderColor";
 import { DeleteOutline } from "@mui/icons-material";
 import PupilInfo from "../ui-components/PupilInfo";
+import DeleteModal from "../ui-components/DeleteModal";
+import { useDispatch } from "react-redux";
+import { classDataSliceAction } from "../store/ClassesData";
 const PupilsTable = ({ currentClass }) => {
   const colums = [
     {
@@ -50,14 +53,21 @@ const PupilsTable = ({ currentClass }) => {
     setRowPerPage(+event.target.value);
     setPage(0);
   };
+
+  const dispatch = useDispatch();
   return (
     <Paper>
       <TableContainer>
         <Table>
           <TableHead>
             <TableRow sx={{ backgroundColor: "#E6EEF4" }}>
-              {colums.map((column) => (
-                <TableCell key={column.id}>{column.name}</TableCell>
+              {colums.map((column, i) => (
+                <TableCell
+                  key={column.id}
+                  sx={{ textAlign: i === 5 ? "center" : "" }}
+                >
+                  {column.name}
+                </TableCell>
               ))}
             </TableRow>
           </TableHead>
@@ -66,6 +76,14 @@ const PupilsTable = ({ currentClass }) => {
               currentClass.pupils
                 .slice(page * rowPerPage, page * rowPerPage + rowPerPage)
                 .map((row, i) => {
+                  const deletePupilFunc = () => {
+                    dispatch(
+                      classDataSliceAction.deletePupil({
+                        classId: currentClass.id,
+                        pupilId: row.id,
+                      })
+                    );
+                  };
                   return (
                     <TableRow key={i}>
                       <TableCell>{i + 1}</TableCell>
@@ -73,11 +91,19 @@ const PupilsTable = ({ currentClass }) => {
                       <TableCell>{row.phone_number}</TableCell>
                       <TableCell>UZS {row.money}</TableCell>
                       <TableCell>0%</TableCell>
-                      <TableCell>
+                      <TableCell
+                        sx={{
+                          width: "250px",
+                          display: "flex",
+                          justifyContent: "space-between",
+                        }}
+                      >
                         <PupilInfo clickedPupil={row} />
-                        <Button sx={{ color: "#FA0000" }}>
-                          <DeleteOutline />
-                        </Button>
+                        <DeleteModal
+                          deleteFunc={deletePupilFunc}
+                          modalText="O'quvchi o'chirilishiga rozimisiz"
+                          buttonText={<DeleteOutline />}
+                        />
                         <Button sx={{ color: "#0094FF" }}>
                           <BorderColorIcon />
                         </Button>
