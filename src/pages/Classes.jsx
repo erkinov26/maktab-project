@@ -2,11 +2,11 @@
 import Navbar from "../ui-components/Navbar";
 import TeacherTable from "../ui-components/TeacherTable";
 
-const ClassesPage = ({ findId }) => {
+const ClassesPage = () => {
   return (
     <>
       <Navbar />
-      <TeacherTable findId={findId} />
+      <TeacherTable />
     </>
   );
 };

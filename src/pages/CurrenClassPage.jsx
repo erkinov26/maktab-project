@@ -9,7 +9,7 @@ import PropTypes from "prop-types";
 import DeleteModal from "../ui-components/DeleteModal";
 import { useDispatch, useSelector } from "react-redux";
 import { classDataSliceAction } from "../store/ClassesData";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 function CustomTabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -43,13 +43,17 @@ function a11yProps(index) {
   };
 }
 
-const CurrentClassPage = ({ currentClass }) => {
+const CurrentClassPage = () => {
   const [value, setValue] = useState(0);
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const { id } = useParams();
+  const CLASS_DATA = useSelector((state) => state.classData);
+  const currentClass = CLASS_DATA.find((item) => item.id === id);
+
   const deleteClassFunc = () => {
     navigate("/sinflar");
     dispatch(

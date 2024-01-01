@@ -15,7 +15,7 @@ import BorderColorIcon from "@mui/icons-material/BorderColor";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
-const TeacherTable = ({ findId }) => {
+const TeacherTable = () => {
   const CLASS_DATA_SLICE = useSelector((state) => state.classData);
   const navigate = useNavigate();
   const colums = [
@@ -86,7 +86,6 @@ const TeacherTable = ({ findId }) => {
                       <TableCell>
                         <Button
                           onClick={() => {
-                            findId(row.id);
                             navigate(`/sinflar/${row.id}`);
                           }}
                           variant="outlined"

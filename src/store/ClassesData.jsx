@@ -16,14 +16,14 @@ const classDataSlice = createSlice({
     },
     deletePupil(state, action) {
       const { classId, pupilId } = action.payload;
-      state.map((item) => {
+      return state.map((item) => {
         if (item.id === classId) {
-          item.pupils.map((pupil) => {
-            if (pupil.id === pupilId) {
-              console.log(pupil.full_name);
-            }
-          });
+          return {
+            ...item,
+            pupils: item.pupils.filter((pupil) => pupil.id !== pupilId),
+          };
         }
+        return item;
       });
     },
   },
